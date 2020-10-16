@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   getSites() {
     this.loading = true;
     this.data.getSites().subscribe( data => {
+      console.log(data)
       if(data.success && data.code == 200) {
         this.sites = data.message;
       }

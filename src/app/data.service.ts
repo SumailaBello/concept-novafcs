@@ -41,6 +41,7 @@ export class DataService {
   totalTransfers: number = 0;
   // get all uploaded details for transfers
   getSites() {
+    console.log(this.token)
     return this.http.get<any>(`https://fcs.concept-nova.com/api/v1/sites/?token=${this.token}`);
   }  
 

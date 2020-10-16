@@ -14,9 +14,9 @@
   //           "site_name": "Site 1",
   //           "site_tank_count" -->
                 <tr *ngFor="let site of sites; let i=index border-bottom">
-                    <td *ngIf = "singleFile"><small class="truncate">{{ site.site_id }}</small></td>
-                    <td *ngIf = "singleFile"><small class="truncate">{{ site.site_name }} </small></td>
-                    <td *ngIf = "singleFile"><small class="truncate">{{ site._tank_count}}</small></td>
+                    <td><small class="truncate">{{ site.site_id }}</small></td>
+                    <td><small class="truncate">{{ site.site_name }} </small></td>
+                    <td><small class="truncate">{{ site.site_tank_count}}</small></td>
                 </tr>
             </tbody>
         </table>
