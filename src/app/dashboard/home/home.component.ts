@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ChangeDetectorRef   } from '@angular/core';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 import { DataService } from '../../data.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-home',
@@ -12,22 +13,24 @@ export class HomeComponent implements OnInit {
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   
-  constructor(public data: DataService) { }
+  constructor(public data: DataService, private location: Location) { }
 
   ngOnInit() {
-    this.getSites()
+    this.getSites();
+    this.location.subscribe(x => console.log(x));
   }
 
   alertMsg
-  loading: boolean;
+  showLoader: boolean;
   showAlert: boolean;
   success: boolean;
 
   sites;
   getSites() {
-    this.loading = true;
+    this.showLoader = true;
     this.data.getSites().subscribe( data => {
-      console.log(data)
+      console.log(data);
+      this.showLoader = false
       if(data.success && data.code == 200) {
         this.sites = data.message;
       }
@@ -36,11 +39,11 @@ export class HomeComponent implements OnInit {
       }
     }, error => {
       console.log(error)
-      this.loading = false;
+      this.showLoader = false
       this.alert(error.message)
     },
     ()=> {
-      this.loading = false
+      this.showLoader = false;
     })
   }
 

@@ -1,6 +1,10 @@
 <div class="w3-container" style="height: 80vh;">
     <div class="container-fluid card-type">
-        <h3>{{this.site.site_name}} Tanks</h3>
+        <h5 class="h5-fluid">{{this.site.site_name}} Tanks 
+            <div *ngIf = "showLoader" class="spinner-border spinner-border-sm mx-3 text-center" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </h5>
         <table class="table">
             <thead>
                 <tr>
@@ -14,7 +18,7 @@
                     <td><small class="truncate">{{ tank.tank_name }} </small></td>
                 </tr>
             </tbody>
-        </table>
+        </table> <br>
         <hr>
         <small class="font-weight-bold hover text-color" routerLink = "/dashboard/home">back to home</small>
     </div>

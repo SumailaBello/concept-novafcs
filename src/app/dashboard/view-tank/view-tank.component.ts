@@ -23,13 +23,13 @@ export class ViewTankComponent implements OnInit {
   }
 
   alertMsg
-  loading: boolean;
-  showAlert: boolean;
+  showAlert: boolean = false;
+  showLoader: boolean = false;
   success: boolean;
 
   tankObj;
   viewTank(siteID, tankID) {
-    this.loading = true;
+    this.showLoader = true;
     this.data.viewTank(siteID, this.tank.tank_id).subscribe( data => {
       console.log(data)
       if(data.success && data.code == 200) {
@@ -40,11 +40,11 @@ export class ViewTankComponent implements OnInit {
       }
     }, error => {
       console.log(error)
-      this.loading = false;
+      this.showLoader = false;
       this.alert(error.message)
     },
     ()=> {
-      this.loading = false
+      this.showLoader = false
     })
   }
     

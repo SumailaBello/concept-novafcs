@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ChangeDetectorRef    } from '@angular/core';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 import { DataService } from '../../data.service';
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-tanks',
@@ -12,7 +13,7 @@ export class TanksComponent implements OnInit {
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
 
-  constructor(public data: DataService) { }
+  constructor(public data: DataService, private location: Location) { }
 
   site;
   ngOnInit() {
@@ -21,14 +22,15 @@ export class TanksComponent implements OnInit {
   }
 
   alertMsg
-  loading: boolean;
-  showAlert: boolean;
+  showAlert: boolean = false;
+  showLoader: boolean = false;
   success: boolean;
 
   tanks;
   getTanks(siteID) {
-    this.loading = true;
+    this.showLoader = true;
     this.data.getTanks(siteID).subscribe( data => {
+      this.showLoader =false;
       console.log(data)
       if(data.success && data.code == 200) {
         this.tanks = data.message;
@@ -38,11 +40,11 @@ export class TanksComponent implements OnInit {
       }
     }, error => {
       console.log(error)
-      this.loading = false;
+      this.showLoader = false;
       this.alert(error.message)
     },
     ()=> {
-      this.loading = false
+      this.showLoader = false
     })
   }
 
