@@ -10,10 +10,7 @@ export class DataService {
 
   constructor(public router: Router, public http: HttpClient, public cookie: CookieService) { }
 
-  // register user
-  // register(body: object) {
-  //   return this.http.post<any>("http://ec2-52-14-102-107.us-east-2.compute.amazonaws.com:3000/api/payday/register_admin", body)
-  // }
+navData;
 
   // login user
   login(body) {
@@ -39,10 +36,23 @@ export class DataService {
 
   pageNum: number= 0;
   totalTransfers: number = 0;
-  // get all uploaded details for transfers
+  // get all sites
   getSites() {
     console.log(this.token)
     return this.http.get<any>(`https://fcs.concept-nova.com/api/v1/sites/?token=${this.token}`);
+  } 
+
+  // get all tanks
+  getTanks(siteID) {
+    console.log(this.token)
+    return this.http.get<any>(`https://fcs.concept-nova.com/api/v1/sites/${siteID}?token=${this.token}`);
+  } 
+
+  // view single tank details
+  site; //site obj
+  viewTank(siteID, tankID) {
+    console.log(this.token)
+    return this.http.get<any>(`https://fcs.concept-nova.com/api/v1/sites/${siteID}/${tankID}?token=${this.token}`);
   }  
 
   logout() {

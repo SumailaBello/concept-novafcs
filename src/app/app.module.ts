@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
+import { TanksComponent } from './dashboard/tanks/tanks.component';
+import { ViewTankComponent } from './dashboard/view-tank/view-tank.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     LoginComponent,
     HomeComponent,
+    TanksComponent,
+    ViewTankComponent,
   ],
   imports: [
     AppRoutingModule,

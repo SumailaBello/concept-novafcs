@@ -8,7 +8,7 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
 
-  title = 'Payday';
+  title = 'Fuel Control System';
   constructor(public data: DataService) {}
 
   ngOnInit() {
