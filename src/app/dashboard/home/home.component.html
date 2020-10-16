@@ -1,10 +1,13 @@
 <div class="w3-container" style="height: 80vh;">
+    <div class="text-center white-text bg-danger text-lowercase">{{alertMsg}}</div>
     <div class="container-fluid card-type">
-        <h5>Sites 
-            <div *ngIf = "showLoader" class="spinner-border spinner-border-sm mx-3 text-center" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </h5>
+        <div class="float-left">
+            <h5>Sites 
+                <div *ngIf = "showLoader" class="spinner-border spinner-border-sm mx-3 text-center" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </h5>
+        </div> 
         <table class="table">
             <thead>
                 <tr>

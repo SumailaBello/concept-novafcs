@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
     this.location.subscribe(x => console.log(x));
   }
 
+  ngOnDestroy() {
+  }
+
   alertMsg
   showLoader: boolean;
   showAlert: boolean;
@@ -40,7 +43,7 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.log(error)
       this.showLoader = false
-      this.alert(error.message)
+      this.alert(error.statusText)
     },
     ()=> {
       this.showLoader = false;

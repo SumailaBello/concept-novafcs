@@ -41,7 +41,7 @@ export class ViewTankComponent implements OnInit {
     }, error => {
       console.log(error)
       this.showLoader = false;
-      this.alert(error.message)
+      this.alert(error.statusText)
     },
     ()=> {
       this.showLoader = false

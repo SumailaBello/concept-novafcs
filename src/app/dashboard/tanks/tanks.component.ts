@@ -30,7 +30,7 @@ export class TanksComponent implements OnInit {
   getTanks(siteID) {
     this.showLoader = true;
     this.data.getTanks(siteID).subscribe( data => {
-      this.showLoader =false;
+      this.showLoader = false;
       console.log(data)
       if(data.success && data.code == 200) {
         this.tanks = data.message;
@@ -41,7 +41,7 @@ export class TanksComponent implements OnInit {
     }, error => {
       console.log(error)
       this.showLoader = false;
-      this.alert(error.message)
+      this.alert(error.statusText)
     },
     ()=> {
       this.showLoader = false

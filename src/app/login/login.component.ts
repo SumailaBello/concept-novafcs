@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         //error function does not run when there is an error use the above instead
         console.log(error);
         this.showLoader = false;
-        this.alertMsg = error.error.result;
+        this.alertMsg = error.statusText;
         this.alert(this.alertMsg);
       },
       () => {
@@ -84,35 +84,6 @@ export class LoginComponent implements OnInit {
         // this.showAlert = false;
       })
   }
-
-  // register(form) {
-  //   this.showLoader = true
-  //   let body = form.value;
-  //   console.log(form.value);
-  //   this.data.register(body).subscribe( 
-  //     data => {
-  //       console.log(data);
-  //       if(!data.success) {
-  //         this.alertMsg = data.result;
-  //         this.alert(this.alertMsg)
-  //       }
-  //       else {
-  //         this.closeAlert() //removes alert if it is currently displayed
-  //         this.success(); // show success message 
-  //       }
-
-  //     },
-  //     error => {
-  //       //error function does not run when there is an error use the above instead
-  //       console.log(error);
-  //       this.alertMsg = error.error.result;
-  //       this.alert(this.alertMsg);
-  //     },
-  //     () => {
-  //       console.log("Completed");
-  //       this.showLoader = false;
-  //     })
-  // }
 
   // displays alert
   alert(message) {

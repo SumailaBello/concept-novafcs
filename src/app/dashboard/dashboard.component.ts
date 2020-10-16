@@ -1,9 +1,6 @@
 import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ChangeDetectorRef, ElementRef  } from '@angular/core';
 import { DataService } from '../data.service';
 import { NavigationEnd } from '@angular/router';
-// import { ModalComponent } from '../modal/modal.component';
-import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
-// import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +8,6 @@ import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  modalRef: MDBModalRef;
 
   constructor(public data: DataService) { }
 
@@ -69,17 +65,6 @@ export class DashboardComponent implements OnInit {
       // console.log(data);
       // console.log(this.currentRoute);
     })
-  }
-
-  // open and closing of modal
-  @ViewChild("modal", {static: false}) modalEl: ElementRef
-  openModal() {
-    this.modalEl.nativeElement.style.display="flex";
-  }
-
-  // close info modal
-  closeModal() {
-    this.modalEl.nativeElement.style.display="none";
   }
 
 }
