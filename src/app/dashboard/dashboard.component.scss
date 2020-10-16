@@ -1,0 +1,31 @@
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+
+.bg-grey {
+    background: #e9ecef;
+}
+
+  a:link {
+      font-size: smaller !important;
+  }
+
+.active-link {
+    background: white;
+    // color: #00296b !important;
+    color: #fdc500 !important;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    height: 50px;
+    width: 100%;
+}
+
+// MEDIA QUERIES
+@media (max-width: 990px) {
+    .active-link {
+        background: #00296b !important;
+        color: #fdc500 !important;
+        border-top-left-radius: 7px;
+        border-bottom-left-radius: 7px;
+        height: 50px;
+        width: 100%;
+    }
+}

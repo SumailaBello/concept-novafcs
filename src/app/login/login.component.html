@@ -1,0 +1,54 @@
+<div class="container-fluid" style="height: 100vh;" id="main-container">
+    <div class="row" style="height: 100%; z-index: 1000;">
+        <div class="col p-3 bg-primary text-center d-none d-lg-block" id="img-col" style="height: 100%; z-index: 1000;">
+            <img src="../../assets/img/login3.svg" alt="" style="width: 100%; height: 90%;">
+            <h3 class="h3-responsive white-text text-center">Fuel Control System </h3>
+            <small class="text-center white-text font-weight-bold" style = "width: 50px; height: 30px;"> Concept Nova </small>
+        </div>
+        <!-- form col -->
+        <div class="col-12 col-lg " style="height: 100%;" id="form-col">
+            <h6 class="h6-responsive text-primary font-weight-bold" id="top-text"> Login to continue </h6>
+            <p *ngIf = "showAlert" class=" text-center bg-danger white-text animate__animated animate__slideInDown">{{alertMsg}}</p>
+            <!-- login /register segment -->
+            <div class="d-flex flex-center">
+                <!-- login form -->
+                <div *ngIf = "segment =='login'" class="card-type bg-white border-radius p-5 mt-5 animate__animated animate__fadeIn" id="login-segment">
+                    <h4 class="h4-responsive text-dark font-weight-bold float-left">login</h4>
+                    <!-- <button class="btn btn-default float-right text-primary" (click) = "switchSegment('register')"><mdb-icon fas icon="user-plus"></mdb-icon>
+                    </button> -->
+                    <!-- <h4 class="h4-responsive text-dark font-weight-bold float-right">register</h4> -->
+                    <form #loginForm = "ngForm" method = "POST" (submit) = "login(loginForm.form)">
+                        <!-- login -->
+                        <div class="md-form">
+                            <input ngModel name = "email" #email = "ngModel" mdbInput type="email" id="email" class="form-control" required>
+                            <label for="email" class="">Email</label>
+                        </div>
+                        <!-- password -->
+                        <div class="md-form">
+                            <input ngModel name = "password" #password = "ngModel" mdbInput [type]="showPassword? 'text' : 'password'" id="password" class="form-control" required>
+                            <label for="password" class="">password</label>
+                            <mdb-icon *ngIf = "showPassword" fas icon="eye" class="text-sm hover text-dark" style="position: absolute; left: 90%; font-size: medium; top: 10px;" (click) = "togglePasswordText()"></mdb-icon>
+                            <mdb-icon *ngIf = "!showPassword" fas icon="eye-slash" class="hover text-dark" style="position: absolute; left: 90%; font-size: medium; top: 10px;" (click) = "togglePasswordText()"></mdb-icon>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <!-- Default unchecked -->
+                                <mdb-checkbox class="float-left" [default]="true" [checked] = "this.data.rememberMe" (change) = "check($event)">remember me</mdb-checkbox>
+                                <!-- <button class="btn btn-sm mt-1 float-left">remember me</button> -->
+                                <button type="submit" class="btn btn-bg border-radius white-text mt-1 float-right" [disabled] = "loginForm.invalid"> 
+                                    <mdb-icon fas icon="sign-in-alt" *ngIf = "!showLoader"></mdb-icon>
+                                    <div *ngIf = "showLoader" class="spinner-border spinner-border-sm white-text mx-3 text-center" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div> <span *ngIf = "!showLoader"> login </span> 
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="text-center fixed-bottom d-block d-lg-none">
+                <img src="../../assets/img/nairabet-logo-mobile.png" alt="logo" style = "width: 50px; height: 30px;">
+            </footer>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,231 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css);
+// for easy customization just change the primary, dark, bg-shade and btn-bg colours to preferred colours
+.bg-primary {
+    background: #00296b !important;
+}
+
+.bg-shade {
+  background: #003f88;
+}
+.bg-grey {
+  background: #e9ecef;
+}
+
+.bg-white {
+  background: white;
+}
+
+.text-primary {
+  color: #00296b !important;
+}
+
+.text-color {
+  color: #fdc500;
+}
+
+.text-dark {
+  color: black !important;
+}
+
+.hover-effect:hover {
+  transform: scale(1.1);
+}
+
+// custom buttons
+.btn-bg {
+  background: #fdc500;
+  // border-radius: 30px;
+}
+
+// dark outline
+.btn-outline {
+  border: 2px solid #fdc500 !important;
+  // border-radius: 30px;
+}
+.primary-outline {
+  border: 2px solid #00296b !important;
+  // border-radius: 30px;
+}
+
+// hover effect for custom buttons
+.btn-bg:hover, div.segment.bg-primary:hover{
+  // background: #fdc500 !important;
+  box-shadow: 0 4px 8px 0 grey !important;
+}
+
+.btn-outline:hover {
+  background: #ffd500;
+  color: white;
+}
+
+.text-dark {
+  color: black !important;
+}
+
+// hover cursor
+.hover {
+  cursor: pointer;
+}
+
+// custom card styling
+.card-type {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 7px;
+  // border-radius: 5px; /* 5px rounded corners */
+}
+// all around border
+.border {
+  border: 2px solid lightgray;
+}
+
+.border-top {
+  border-top: 2px solid lightgray;
+}
+
+.border-right {
+  border-right: 2px solid lightgray;
+}
+
+.border-bottom {
+  border-bottom: 2px solid lightgray;
+}
+
+.border-radius {
+  border-radius: 7px;
+}
+
+.ffolder{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.ffolder.small{
+  margin-top: 8px;
+  width: 88px;
+  height: 61px;
+  border-radius: 0px 6px 6px 6px;
+}
+
+.ffolder.medium{
+  margin-top: 16px;
+  width: 176px;
+  height: 122px;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.ffolder.big{
+  margin-top: 24px;
+  width: 264px;
+  height: 183px;
+  border-radius: 0px 14px 14px 14px;
+}
+
+.ffolder:before{
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.ffolder:after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.ffolder.small:before{
+  top:-8px;
+  left: 0;
+  width: 32px;
+  height: 8px;
+  border-radius: 6px 0px 0px 0px;
+}
+
+.ffolder.small:after{
+  top:-16px;
+  left: 24px;
+  border: 8px solid transparent;
+}
+
+
+.ffolder.medium:before{
+  top:-16px;
+  left: 0;
+  width: 64px;
+  height: 16px;
+  border-radius: 10px 0px 0px 0px;
+}
+
+.ffolder.medium:after{
+  top:-32px;
+  left: 48px;
+  border: 16px solid transparent;
+}
+
+.ffolder.big:before{
+  top:-24px;
+  left: 0;
+  width: 96px;
+  height: 24px;
+  border-radius: 14px 0px 0px 0px;
+}
+
+.ffolder.big:after{
+  top:-48px;
+  left: 72px;
+  border: 24px solid transparent;
+}
+
+.ffolder span, .ffolder i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ffolder span{
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+
+.ffolder.small i{ font-size: 37px;}
+.ffolder.medium i{ font-size: 53px;}
+.ffolder.big i{ font-size: 53px;}
+
+
+/*Available colors*/
+.ffolder.cyan{ background-color: #23CBF4;}
+.ffolder.cyan:before, .ffolder.cyan span{ background-color: #06BAEE;}
+.ffolder.cyan:after{ border-bottom-color: #06BAEE;}
+.ffolder.cyan span{color: #FFFFFF;}
+.ffolder.cyan i{color: #06BAEE;}
+
+.ffolder.yellow{ background-color: #FFBD00;}
+.ffolder.yellow:before, .ffolder.yellow span{ background-color: #F1A402;}
+.ffolder.yellow:after{ border-bottom-color: #F1A402;}
+.ffolder.yellow span{color: #FFFFFF;}
+.ffolder.yellow i{color: #F1A402;}
+
+.ffolder.pink{ background-color: #FF7F92;}
+.ffolder.pink:before, .ffolder.pink span{ background-color: #FF5E6E;}
+.ffolder.pink:after{ border-bottom-color: #FF5E6E;}
+.ffolder.pink span{color: #FFFFFF;}
+.ffolder.pink i{color: #FF5E6E;}
+
+.ffolder.green{ background-color: #62DE82;}
+.ffolder.green:before, .ffolder.green span{ background-color: #66CA7F;}
+.ffolder.green:after{ border-bottom-color: #66CA7F;}
+.ffolder.green span{background-color: transparent;}
+.ffolder.green i{color: #54C170;}
+
+.ffolder.gray{ background-color: #829aa8;}
+.ffolder.gray:before, .ffolder.gray span{ background-color: #687F8C;}
+.ffolder.gray:after{ border-bottom-color: #687F8C;}
+.ffolder.gray span{background-color: transparent;}
+.ffolder.gray i{color: #687F8C;}

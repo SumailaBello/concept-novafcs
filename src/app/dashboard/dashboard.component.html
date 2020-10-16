@@ -1,0 +1,62 @@
+<div class="w3-sidebar w3-bar-block w3-collapse bg-primary w3-animate-left pt-4" style="width:200px; overflow-x: hidden;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large w3-hide-large white-text" (click) = "this.w3_close()">Close &times;</button>
+    <div class="row">
+        <div class="col text-center">
+            <!-- <img class="img-responsive" src="../../assets/img/logo.png" alt="" style="height: 5rem; width: 10rem;"> -->
+            <h5 class="h5-responsive white-text">Fuel Control System </h5>
+        </div>
+    </div>
+    <div class="row mt-5 ml-3 white-text">
+        <div class="col-12 mb-1 p-3" [class.active-link] = "currentRoute == '/dashboard/home'" >
+            <!-- <i class="fas fa-th-large mr-3"></i> <a routerLink="/dashboard/home">Dashboard</a> -->
+            <mdb-icon fas icon="upload" class="mr-2"></mdb-icon> <a routerLink="/dashboard/home">Home</a>
+        </div>
+        <!-- <div class="col-12 mb-1 p-3" [class.active-link] = "currentRoute == '/dashboard/paymenthistory'">
+            <mdb-icon fas icon="history" class="mr-2"></mdb-icon> <a routerLink="/dashboard/paymenthistory">Payment history</a>
+        </div> -->
+        <div class="col-12 fixed-bottom p-3">
+            <button class="btn btn-default btn-sm white-text" (click) = "this.data.logout()"><mdb-icon fas icon="sign-out-alt" class="ml-1 mr-1"></mdb-icon>Logout</button>
+        </div>
+    </div>
+       
+</div>
+  
+<div class="w3-main" style="margin-left:200px;">
+    <div class="">
+        <button class="w3-button w3-xlarge w3-hide-large bg-primary white-text" (click)="this.w3_open()">&#9776;</button>
+        <div class="w3-container">
+            <div class="row">
+                <!-- main-col-1 -->
+                <div class="col pt-3">
+                    <!-- sub row -->
+                    <div class="row container-fluid">
+                        <div class="col">
+                            <h3 class = "h3-responsive">Welcome {{this.data.name}}</h3>
+                        </div>
+                        <div class="col text-right">
+                            <mdb-icon class="hover m-2 text-color" fas icon="info-circle" (click) = "openModal()"></mdb-icon>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- The Modal -->
+                            <div #modal id="id01" class="w3-modal flex-center">
+                                <div class="w3-modal-content card-type p-2 animate__animated animate__slideInDown border-radius">
+                                    <div class="w3-container bg-white">
+                                        <span (click) = "closeModal()" class="w3-button text-danger w3-display-topright border-radius">&times;</span>
+                                        <small class="text-center text-primary">Payday</small>
+                                        <h4 class="h4-responsive text-danger text-center">This product is intended for authorised use only!</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <router-outlet>
+
+                            </router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

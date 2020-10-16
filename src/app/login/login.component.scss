@@ -1,0 +1,26 @@
+#main-container {
+    // background-color: #e96196;
+    // background-image: linear-gradient(315deg, #ec008c 0%, #f5f4f2 74%);
+    overflow-y: hidden;
+}
+
+#login-segment {
+    width: 70%;
+}
+
+#top-text {
+    position: absolute; 
+    top: 20%; 
+    left: 40%;
+}
+
+// MEDIA QUERIES
+@media (max-width: 990px) {
+    #login-segment {
+        width: 100%;
+    }
+
+    #top-text {
+        left: 30%;
+    }
+}

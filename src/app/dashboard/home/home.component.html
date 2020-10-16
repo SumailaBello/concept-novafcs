@@ -1,0 +1,24 @@
+<div class="w3-container" style="height: 80vh;">
+    <div class="container-fluid card-type">
+        <h3>Sites</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Tanks</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <!-- ite_id": 12345,
+  //           "site_name": "Site 1",
+  //           "site_tank_count" -->
+                <tr *ngFor="let site of sites; let i=index border-bottom">
+                    <td *ngIf = "singleFile"><small class="truncate">{{ site.site_id }}</small></td>
+                    <td *ngIf = "singleFile"><small class="truncate">{{ site.site_name }} </small></td>
+                    <td *ngIf = "singleFile"><small class="truncate">{{ site._tank_count}}</small></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
