@@ -1,21 +1,23 @@
-import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ChangeDetectorRef   } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ChangeDetectorRef    } from '@angular/core';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 import { DataService } from '../../data.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-tanks',
+  templateUrl: './tanks.component.html',
+  styleUrls: ['./tanks.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class TanksComponent implements OnInit {
 
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
-  
+
   constructor(public data: DataService) { }
 
+  site;
   ngOnInit() {
-    this.getSites()
+    this.site = this.data.navData;
+    this.getTanks(this.site.site_id);
   }
 
   alertMsg
@@ -23,13 +25,13 @@ export class HomeComponent implements OnInit {
   showAlert: boolean;
   success: boolean;
 
-  sites;
-  getSites() {
+  tanks;
+  getTanks(siteID) {
     this.loading = true;
-    this.data.getSites().subscribe( data => {
+    this.data.getTanks(siteID).subscribe( data => {
       console.log(data)
       if(data.success && data.code == 200) {
-        this.sites = data.message;
+        this.tanks = data.message;
       }
       else {
         this.alert(data.message)
@@ -44,12 +46,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  viewTanks(siteID) {
-    this.data.navData =  siteID;
-    this.data.router.navigateByUrl("/dashboard/tanks");
+  viewTank(site, tank) {
+    this.data.navData =  tank;
+    this.data.site =  site;
+    this.data.router.navigateByUrl("/dashboard/view-tank");
   }
-  // displays alert
-  
+    
   alert(message) {
     this.success = false;
     this.showAlert = true;

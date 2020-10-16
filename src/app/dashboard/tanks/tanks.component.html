@@ -1,0 +1,21 @@
+<div class="w3-container" style="height: 80vh;">
+    <div class="container-fluid card-type">
+        <h3>{{this.site.site_name}} Tanks</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngFor="let tank of tanks; let i=index border-bottom" class="hover" (click) = "viewTank(site, tank)">
+                    <td><small class="truncate">{{ tank.tank_id }}</small></td>
+                    <td><small class="truncate">{{ tank.tank_name }} </small></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <small class="font-weight-bold hover text-color" routerLink = "/dashboard/home">back to home</small>
+    </div>
+</div>

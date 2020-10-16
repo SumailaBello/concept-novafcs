@@ -1,0 +1,31 @@
+<!-- "message": {
+    "tank_id": 12345,
+    "tank_name": "Tank 1",
+    "tank_capacity": 2500,
+    "tank_current_volume": "1750.25"
+} -->
+<div class="w3-container" style="height: 80vh;">
+    <div class="container-fluid card-type">
+        <h3>{{this.tank.tank_name}} details</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Capacity</th>
+                    <th>Current Volume</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngIf = "tankObj" class="hover border-bottom">
+                    <td><small class="truncate">{{ tankObj.tank_id }}</small></td>
+                    <td><small class="truncate">{{ tankObj.tank_name }} </small></td>
+                    <td><small class="truncate">{{ tankObj.tank_capacity }} </small></td>
+                    <td><small class="truncate">{{ tankObj.tank_current_volume }} </small></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <small class="font-weight-bold hover text-color" routerLink = "/dashboard/home">back to home</small>
+    </div>
+</div>
